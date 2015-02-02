@@ -46,8 +46,7 @@ Datum objednávky: <b><? echo date("j.n.Y",$termin) ?></b><br>
 PROSÍME O PŘÍCHOD 15 MIN. DŘÍVE NEŽ JE UVEDENÝ<br>ČAS OBJEDNÁVKY K LÉKAŘI.<br>
 <br>
 PŘED VSTUPEM DO ORDINACE JE POTŘEBA SE NAHLÁSIT<br>
-V EVIDENCI K ZAPSÁNÍ DO AMBULANTNÍ KARTY<br>
-A K ZAPLACENÍ REGULAČNÍHO POPLATKU 30,-Kč.<br>
+V EVIDENCI K ZAPSÁNÍ DO AMBULANTNÍ KARTY.<br>
 <br>
 
 <b><? echo getDocName($doc_id); ?></b>
