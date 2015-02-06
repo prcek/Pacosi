@@ -58,20 +58,15 @@ zdravotní dokumentaci k diagnoze.
 
 <br>
 <br>
-<br>
-<br>
-<br>
-<font size=1>
+<font size=2>
 <?
      $a = split("/",$_SERVER["REQUEST_URI"]);
-     if ($a[1] == "pacosi") {
+     if (($a[1] == "clr") && ($a[2]=="pacosi_dob")) {
 ?>
-MUDr. Antonín Koukal, spol. s r.o., Viniční 235, 615 00 Brno, tel.: 533 306 376,<br>
-fax.: 533 306 132, e-mail: info@clr.cz, http://www.clr.cz, IČ: 60731842, IČZ: 72678000<br>
-<?     } else if (($a[1] == "clr") && ($a[2]=="pacosi2")) { ?>
-MUDr. Antonín Koukal, spol. s r.o., Dobrovského 23, 612 00 Brno, tel.:541 425 260<br>
-e-mail: info@clr.cz, http://www.clr.cz<br>
-<?     } ?>
+www.clr.cz, Dobrovského 23, 612 00 Brno, tel.:541 425 260<br>
+<?   } else if (($a[1] == "clr") && ($a[2]=="pacosi_vin")) { ?>
+www.clr.cz, Viniční 235, 615 00 Brno, tel.: 533 306 376<br>
+<?   } ?>
 </font>
 </div>
  </body>
