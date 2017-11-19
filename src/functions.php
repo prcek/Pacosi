@@ -447,7 +447,7 @@ $connection = 0;
 function databaseConnect()
 {
   global $connection;
-  $a = split("/",$_SERVER["REQUEST_URI"]);
+  /* $a = preg_split("/\//",$_SERVER["REQUEST_URI"]);
   if ($a[1] == "pacosi") {
   	$login = "pacosi";
 	$password = "*** CHANGE ME ***";
@@ -461,22 +461,23 @@ function databaseConnect()
 	$password = "*** CHANGE ME ***";
 	$database = "clr_pacosi_vin";
   } else {
-  	$login = "pacosi_test";
-	$password = "pacosi_test";
-	$database = "pacosi_test";
-  }
+*/
+  	$login = "pacosi";
+	$password = "telepath";
+	$database = "pacosi";
+  //}
 
-
-  $connection = MySQL_Connect("localhost",$login,$password);
+//$db_host,$db_user,$db_pass,$db_database,$db_port
+  $connection = mysqli_connect("pacosi-mariadb",$login,$password,$database);
   if (!$connection) 
   {
 	echo "Databáze není pøipojena";
 	return -1;
   }
-  MySQL_Select_DB($database);
+  //MySQL_Select_DB($database);
 
-  mysql_query("SET CHARACTER SET utf8");
-  mysql_query("SET NAMES utf8");
+  mysqli_query($connection,"SET CHARACTER SET utf8");
+  mysqli_query($connection,"SET NAMES utf8");
 
   return 0;
 }
@@ -485,7 +486,19 @@ function databaseConnect()
 function databaseDisconnect()
 {
   global $connection;
-  MySQL_Close($connection);
+  mysqli_close($connection);
+}
+
+function MySQL_Query($q) {
+    global $connection;
+    return mysqli_query($connection,$q);
+}
+
+function MySQL_Fetch_Array($r) {
+    return mysqli_fetch_array($r);
+}
+function mysql_num_rows($x) {
+    return mysqli_num_rows($x);
 }
 
 ///////////////////////  Database functions } /////////////////////////////////////////////////////////////////////////

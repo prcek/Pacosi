@@ -19,7 +19,7 @@ if ($_POST['enter'])
     {
         die("chyba databáze".mysql_error());
     }
-    $record = MySQL_Fetch_Array($result);
+    $record = mysqli_fetch_array($result);
     if (!$record)
     {
         $unauthorised = 1;

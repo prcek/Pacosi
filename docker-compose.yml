@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  pacosi:
+    build: .
+    container_name: pacosi-app
+    ports:
+      - "3333:80"
+
+  mariadb:
+    image: mariadb:10.1
+    container_name: pacosi-mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=pacosi
+      - MYSQL_USER=pacosi
+      - MYSQL_PASSWORD=telepath
+    ports:
+      - "3336:3306"
